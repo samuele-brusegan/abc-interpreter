@@ -1,0 +1,26 @@
+00  |  0C000016  | jump input
+01  |  00000000  |                  :num
+02  |  00000000  |                  :zero
+03  |  00000001  |                  :uno
+04  |  00000002  |                  :due
+05  |  00000002  |                  :I
+06  |  00000001  | load num         :LOOP
+07  |  08000005  | mod i
+08  |  0D000014  | jz IF_T1        //Esco dal loop e stampo FALSO
+09  |  00000005  | load i
+0A  |  04000003  | add uno
+0B  |  01000005  | store i
+0C  |  00000001  | load num
+0D  |  07000004  | div due
+0E  |  05000005  | sub i            :IF_T1
+0F  |  0E000006  | jgz loop
+10  |  00000003  | load uno
+11  |  03000100  | out 100
+12  |  0C000019  | jump end
+13  |  00000002  | load zero
+14  |  03000100  | out 100
+15  |  0C000019  | jump end
+16  |  02000100  | in 100           :input
+17  |  01000001  | store num
+18  |  0C000006  | jump loop
+19  |  FF000000  | end              :end
