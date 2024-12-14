@@ -1,8 +1,7 @@
 package utilities;
 
 import java.util.Scanner;
-
-import static utilities.Print.print;
+import static utilities.Print.*;
 
 @SuppressWarnings("unused")
 public class General {

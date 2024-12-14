@@ -93,27 +93,38 @@ public class Print {
         println(ANSI_RED + arg + ANSI_RESET);
     }
 
-
-    public static void printColor(String arg, String color){
-        switch (color){
-            case "black" -> print(ANSI_BLACK + arg + ANSI_RESET);
-            case "red" -> print(ANSI_RED + arg + ANSI_RESET);
-            case "green" -> print(ANSI_GREEN + arg + ANSI_RESET);
-            case "yellow" -> print(ANSI_YELLOW + arg + ANSI_RESET);
-            case "blue" -> print(ANSI_BLUE + arg + ANSI_RESET);
-            case "cyan" -> print(ANSI_CYAN + arg + ANSI_RESET);
-            case "purple" -> print(ANSI_PURPLE + arg + ANSI_RESET);
-
-            default -> print(ANSI_WHITE + arg + ANSI_RESET);
-
+    /**
+     * Prints an array
+     * @param array the array to be printed
+     */
+    public static void printArray(int[] array){
+        for (int arrayItem : array) {
+            System.out.print(arrayItem + ", ");
         }
     }
-    public static void printColor(int arg, String color){
-        printColor(arg + "", color);
+    public static void printArray(int[] array, String string){
+        for (int arrayItem : array) {
+            System.out.print(arrayItem + ", ");
+        }
+        System.out.print(string);
     }
-    public static void printColor(float arg, String color){
-        printColor(arg + "", color);
+    public static void printArrayLn(int[] array){
+        for (int arrayItem : array) {
+            System.out.print(arrayItem + ", ");
+        }
+        System.out.println();
     }
 
+    public static void printTabulatedArray(int[] array){
+        for (int arrayItem : array) {
+            System.out.printf("%5s", arrayItem);
+        }
+        System.out.println();
+    }
+    public static void printMatrix(int[][] matrix){
+        for (int[] item : matrix) {
+            printTabulatedArray(item);
+        }
+    }
 
 }

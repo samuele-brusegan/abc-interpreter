@@ -1,4 +1,7 @@
 package utilities;
+
+import static java.lang.Math.random;
+
 @SuppressWarnings("unused")
 
 public class Math {
@@ -57,5 +60,10 @@ public class Math {
                 cont++;
             }
         }
+    }
+    public static int rand(int min, int max){
+        int interval = max - min;
+        int offset = min;
+        return (int) (random()*interval)+offset;
     }
 }

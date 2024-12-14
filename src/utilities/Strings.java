@@ -45,10 +45,6 @@ public class Strings {
         }
         return tmp;
     }
-    public static String reverse(String str) {
-        //Alias di Invert Word
-        return invertWord(str);
-    }
 
     /**
      * Removes spaces and convert the {@code String} to lower case
@@ -268,5 +264,9 @@ public class Strings {
             }
         }
         return invertWord(tmp);
+    }
+    public static String reverse(String str) {
+        //Alias di Invert Word
+        return invertWord(str);
     }
 }
