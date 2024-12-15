@@ -56,7 +56,7 @@ public class Memoria {
 	
 
 	void write(Addr24 address, Hex valueObj) {
-		String value = valueObj.hex;
+		String value = valueObj.value;
 		int addr = address.addr_int;
 		if(addr <= this.length){
 			this.memory[addr] = remSpace(value);
@@ -66,8 +66,8 @@ public class Memoria {
 		}
 	}
 	
-	String read(Addr24 address) {
-		return memory[address.addr_int];
+	Hex read(Addr24 address) {
+		return new Hex(memory[address.addr_int]);
 	}
 	
 	void printMemory(){

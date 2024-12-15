@@ -1,8 +1,6 @@
-import instr.Istruzioni_bak;
-
+import static java.lang.Thread.sleep;
 import static utilities.General.input;
 import static utilities.Print.*;
-import static instr.Istruzioni_bak.*;
 
 
 public class Main {
@@ -34,17 +32,30 @@ public class Main {
 		memory.populateMemory(file_name);
 		
 		//IP = 0
-		ip.init("000000");
-		
-		//Fetch
-		ir.init(memory.read(ip)); //Decode
-		ip.incrementa(1);
-		
-		//Execute
-		//execute();
+		ip.setAddr(new Hex("000000"));
+		if(debug)println("+----+----------+");
+		while (!foundEnd){
+			//print(ip.addr_int);
+			
+			//Fetch
+			ir.init(memory.read(ip)); //Decode
+			ip.incrementa();
+			
+			if(debug){
+				print("| ");
+				System.out.printf("%2s", new Hex().toHex(ip.addr_int -1).value);
+				print(" | " + ir.addr_hex.value + " | ");
+			}
+			
+			//Execute
+			execute();
+			//println("");
+			if(debug) sleep(100);
+		}
+		if(debug)println("\n+----+----------+");
 	}
 	
-	private static void execute() throws Exception {
+	private static void execute() {
 		Istruzione istruzione = new Istruzione(ir.versione, ir.codiceOperativo, ir.indirizzoIstruzione);
 
 		istruzione.esegui();
