@@ -1,68 +1,69 @@
 package instr;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileReader;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static utilities.Strings.remSpace;
 import static utilities.Print.*;
-import static utilities.Strings.reverse;
+import static utilities.Strings.*;
 
 @SuppressWarnings("StringConcatenationInLoop")
-public class Istruzioni {
+public class Istruzioni_bak {
 
     //public static String[] memory = new String[memLength];
     public static String[] memory = new String[10];
 
     //VER 1
-    public static String load(String addr) {
-        int targetAddress = hex2dec(addr);
-        return memory[targetAddress];
-    }
-    public static void store(String addr, String accHEX) {
-        int a = 0;
-        memoryWrite(addr, accHEX);
-    }
-
-    public static String add(String accHEX, String addr) {
-        int targetAddress = hex2dec(addr);
-        int value = hex2dec(memory[targetAddress]);
-        int accVal = hex2dec(accHEX);
-        return dec2hex(accVal + value);
-    }
-    public static String sub(String accHEX, String addr) {
-        int targetAddress = hex2dec(addr);
-
-        int accVal = hex2dec(accHEX);
-        int value = hex2dec(memory[targetAddress]);
-
-        //println(accVal + " - " + value);
-        int subValue = accVal - value;
-        //println(subValue);
-        return dec2hex(subValue);
-    }
-    public static String mul(String accHEX, String addr) {
-        int targetAddress = hex2dec(addr);
-        int value = hex2dec(memory[targetAddress]);
-        int accVal = hex2dec(accHEX);
-        return dec2hex(accVal * value);
-    }
-    public static String div(String accHEX, String addr) {
-        int targetAddress = hex2dec(addr);
-        int value = hex2dec(memory[targetAddress]);
-        int accVal = hex2dec(accHEX);
-        return dec2hex(accVal / value);
-    }
-    public static String mod(String accHEX, String addr) {
-        int targetAddress = hex2dec(addr);
-        int value = hex2dec(memory[targetAddress]);
-        int accVal = hex2dec(accHEX);
-        return dec2hex(accVal % value);
-    }
+//    public static String load(String addr) {
+//        int targetAddress = hex2dec(addr);
+//        return memory[targetAddress];
+//    }
+//    public static void store(String addr, String accHEX) {
+//        int a = 0;
+//        memoryWrite(addr, accHEX);
+//    }
+//
+//    public static String add(String accHEX, String addr) {
+//        int targetAddress = hex2dec(addr);
+//        int value = hex2dec(memory[targetAddress]);
+//        int accVal = hex2dec(accHEX);
+//        return dec2hex(accVal + value);
+//    }
+//    public static String sub(String accHEX, String addr) {
+//        int targetAddress = hex2dec(addr);
+//
+//        int accVal = hex2dec(accHEX);
+//        int value = hex2dec(memory[targetAddress]);
+//
+//        //println(accVal + " - " + value);
+//        int subValue = accVal - value;
+//        //println(subValue);
+//        return dec2hex(subValue);
+//    }
+//    public static String mul(String accHEX, String addr) {
+//        int targetAddress = hex2dec(addr);
+//        int value = hex2dec(memory[targetAddress]);
+//        int accVal = hex2dec(accHEX);
+//        return dec2hex(accVal * value);
+//    }
+//    public static String div(String accHEX, String addr) {
+//        int targetAddress = hex2dec(addr);
+//        int value = hex2dec(memory[targetAddress]);
+//        int accVal = hex2dec(accHEX);
+//        return dec2hex(accVal / value);
+//    }
+//    public static String mod(String accHEX, String addr) {
+//        int targetAddress = hex2dec(addr);
+//        int value = hex2dec(memory[targetAddress]);
+//        int accVal = hex2dec(accHEX);
+//        return dec2hex(accVal % value);
+//    }
 
     //INT accumulator
     /*/    public static int addInt(int acc, String addr) {
@@ -177,15 +178,30 @@ public class Istruzioni {
         return reverse(ca2_rev);
     }
 
-    public static BufferedReader initFile(String file_name) throws FileNotFoundException {
+    /*public static BufferedReader initFile(String file_name) {
 
-        Path path = Paths.get(file_name);
-        Path absolutePath = path.toAbsolutePath();
-        File file = new File(String.valueOf(absolutePath));
-
-        return new BufferedReader(new FileReader(file));
-    }
-
+	    try {
+	        Path path = Paths.get(file_name);
+	        Path absolutePath = path.toAbsolutePath();
+	        File file = new File(String.valueOf(absolutePath));
+	    
+		    return new BufferedReader(new FileReader(file));
+	    } catch (FileNotFoundException e) {
+		    throw new RuntimeException(e);
+	    }
+    }*/
+	
+	public void givenFilePath_whenUsingFilesLines_thenFileData(String file_name) {
+		try {
+			Path path = Paths.get(getClass().getClassLoader().getResource(file_name).toURI());
+			Stream<String> lines = Files.lines(path);
+			String data = lines.collect(Collectors.joining("\n"));
+			lines.close();
+			
+		} catch (Exception e){print("File not found");}
+	}
+	
+	/*
     //Manage Virtual Memory
     public static int getMemoryLength(String file_name) throws Exception {
         BufferedReader br = initFile(file_name);
@@ -214,6 +230,6 @@ public class Istruzioni {
             memory[memoryCell] = remSpace(str).split("\\|")[1];
             memoryCell++;
         }
-    }
+    }*/
 
 }

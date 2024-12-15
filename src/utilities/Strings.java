@@ -1,5 +1,9 @@
 package utilities;
 
+import java.util.Arrays;
+
+import static utilities.Print.*;
+
 //@SuppressWarnings("ALL")
 @SuppressWarnings({"StringConcatenationInLoop", "unused"})
 
@@ -155,6 +159,21 @@ public class Strings {
         }
         return counter;
     }
+	/**
+	 * Returns the number of spaces in a {@code String}
+	 * @param str a {@code String}
+	 * @return the number of spaces
+	 */
+	public static int countChar(String str, char c) {
+		
+		int counter = 0;
+		for(int i = 0; i < str.length(); i++){
+			if(str.charAt(i) == c){
+				counter++;
+			}
+		}
+		return counter;
+	}
 
     /**
      * Returns the number of words (substrings ending with space) starting with a Capital letter
@@ -269,4 +288,26 @@ public class Strings {
         //Alias di Invert Word
         return invertWord(str);
     }
+	
+	public static boolean appartainToRadix(String str, int radix){
+		str = str.toUpperCase();
+		char[] charsAllowed = new char[radix];
+		
+		for (int i = 0; i < radix; i++) {
+			if(i+'0' <= '9') charsAllowed[i] = (char) (i+'0');
+			else charsAllowed[i] = (char) (i-10+'a');
+		}
+		//printArray(charsAllowed);
+		for(int i = 0; i < str.length(); i++){
+			boolean theres = false;
+			for(char c : charsAllowed){
+				if (str.charAt(i) == c) {
+					theres = true;
+					break;
+				}
+			}
+			if(!theres) return false;
+		}
+		return true;
+	}
 }
