@@ -1,7 +1,17 @@
 import static utilities.Strings.appartainToRadix;
 
-public class Addr24 {
-	Hex addr_hex;
+public class Addr24 extends Address {
+
+	public Addr24(Hex address) {
+		super(address, 24);
+	}
+	public Addr24(String strAddr) {
+		super(new Hex(strAddr), 24);
+	}
+	public Addr24() {
+		super(new Hex("000000"), 24);
+	}
+	/*Hex addr_hex;
 	int addr_int;
 	
 	Addr24(){}
@@ -43,5 +53,5 @@ public class Addr24 {
 	void decrementa(int decremento){
 		addr_int -= decremento;
 		addr_hex.setValue(Integer.toHexString(addr_int));
-	}
+	}*/
 }

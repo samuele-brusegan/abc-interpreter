@@ -5,7 +5,7 @@ import static utilities.Print.*;
 
 public class Main {
 	static Addr32 accumulatore = new Addr32();
-	static Addr32 ir           = new Addr32();
+	static InstuctionRegister ir = new InstuctionRegister();
 	
 	static Addr24 ip           = new Addr24();
 	static Addr24 ix           = new Addr24();
@@ -30,6 +30,7 @@ public class Main {
 		//Click Reset
 		memory = new Memoria(file_name);
 		memory.populateMemory(file_name);
+		memory.printMemory();
 		
 		//IP = 0
 		ip.setAddr(new Hex("000000"));
