@@ -1,4 +1,4 @@
-import static utilities.Print.println;
+import static utilities.Print.*;
 
 public class Istruzione {
 	
@@ -23,45 +23,45 @@ public class Istruzione {
 	}
 	
 	void esegui_V0(){
-		Esecutore istruzione = new Esecutore();
+		EsecutoreV0 esecutore = new EsecutoreV0();
 		//Gestione accumulatore
 		if(codiceOperativo == '0'){
-			if(Main.debug) println("\t  LOAD : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.load(indirizzo);
+			if(Main.debug) println("\t "+colorizer("LOAD", "purple-li")+"  : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.load(indirizzo);
 		}
 		if(codiceOperativo == '1'){
-			if(Main.debug) println("\t STORE : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.store(indirizzo);
+			if(Main.debug) println("\t "+colorizer("STORE", "purple-li")+" : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.store(indirizzo);
 		}
 		
 		// Input / Output
 		if(codiceOperativo == '2'){
-			istruzione.input(indirizzo);
+			esecutore.input(indirizzo);
 		}
 		if(codiceOperativo == '3'){
-			istruzione.output(indirizzo);
+			esecutore.output(indirizzo);
 		}
 		
 		//Operazioni Aritmetiche
 		if(codiceOperativo == '4'){
-			if(Main.debug) println("\t SOMMA : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.add(indirizzo);
+			if(Main.debug) println("\t "+colorizer("SOMMA", "purple-li")+" : (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.add(indirizzo);
 		}
 		if(codiceOperativo == '5'){
-			if(Main.debug) println("\t SOTTRA: (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.sub(indirizzo);
+			if(Main.debug) println("\t "+colorizer("SOTTRA", "purple-li")+": (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.sub(indirizzo);
 		}
 		if(codiceOperativo == '6'){
-			if(Main.debug) println("\t MOLTIP: (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.mul(indirizzo);
+			if(Main.debug) println("\t "+colorizer("MOLTIP", "purple-li")+": (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.mul(indirizzo);
 		}
 		if(codiceOperativo == '7'){
-			if(Main.debug) println("\t DIVISI: (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.div(indirizzo);
+			if(Main.debug) println("\t "+colorizer("DIVISI", "purple-li")+": (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.div(indirizzo);
 		}
 		if(codiceOperativo == '8'){
-			if(Main.debug) println("\t MODULO: (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
-			istruzione.mod(indirizzo);
+			if(Main.debug) println("\t "+colorizer("MODULO", "purple-li")+": (addr: "+indirizzo.addr_hex.value+", acc: "+Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+")");
+			esecutore.mod(indirizzo);
 		}
 		//Operazioni logiche
 		
@@ -69,23 +69,23 @@ public class Istruzione {
 		
 		//Salti
 		if(codiceOperativo == 'C'){
-			if(Main.debug) println("\tHo provato a saltare all addr " + indirizzo.addr_hex.value);
+			if(Main.debug) printColor("\t Ho saltato all addr " + indirizzo.addr_hex.value+"\n", "blue-li");
 			Main.ip.setAddr(indirizzo);
 		}
 		if(codiceOperativo == 'D'){     /* JZ  */
-			if(Main.debug) println("\tHo provato a saltare all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value);
+			if(Main.debug) printColor("\t Ho provato a saltare (JZ) all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value+"\n", "blue-li");
 			if(Main.accumulatore.addr_int == 0){
 				Main.ip.setAddr(indirizzo);
 			}
 		}
 		if(codiceOperativo == 'E'){     /* JLZ */
-			if(Main.debug) println("\tHo provato a saltare all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value);
+			if(Main.debug) printColor("\t Ho provato a saltare (JLZ) all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value+"\n", "blue-li");
 			if(Main.accumulatore.addr_int < 0){
 				Main.ip.setAddr(indirizzo);
 			}
 		}
 		if(codiceOperativo == 'F'){     /* JGZ */
-			if(Main.debug) println("\tHo provato a saltare all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value);
+			if(Main.debug) printColor("\t Ho provato a saltare (JGZ) all addr " + indirizzo.addr_hex.value+ " con acc.: "+Main.accumulatore.addr_hex.value+"\n", "blue-li");
 			if(Main.accumulatore.addr_int > 0){
 				Main.ip.setAddr(indirizzo);
 			}

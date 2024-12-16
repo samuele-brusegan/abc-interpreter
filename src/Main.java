@@ -5,7 +5,7 @@ import static utilities.Print.*;
 
 public class Main {
 	static Addr32 accumulatore = new Addr32();
-	static InstuctionRegister ir = new InstuctionRegister();
+	static InsReg ir           = new InsReg();
 	
 	static Addr24 ip           = new Addr24();
 	static Addr24 ix           = new Addr24();
@@ -16,21 +16,25 @@ public class Main {
 	
 	static String FILE_EXTENSION = "mtcp";
 	static String file           = "numPrimeNew";
-	static String file_name="src/assembledCode/"+file+"."+FILE_EXTENSION;
+	static String file_name;
 	//static String file_name      = "euclide";
 	
 	//Settings
 	static boolean foundEnd      = false;
 	
-	static boolean debug         = false;
+	static boolean debug         = true;
 	static boolean showTrace     = false;
 	static boolean verbose       = false;
 	
 	public static void main(String[] args) throws Exception {
+		
+		userInterface();
+		file_name = "src/assembledCode/"+file+"."+FILE_EXTENSION;
+		
 		//Click Reset
 		memory = new Memoria(file_name);
 		memory.populateMemory(file_name);
-		memory.printMemory();
+		//memory.printMemory();
 		
 		//IP = 0
 		ip.setAddr(new Hex("000000"));
@@ -39,7 +43,7 @@ public class Main {
 			//print(ip.addr_int);
 			
 			//Fetch
-			ir.init(memory.read(ip)); //Decode
+			ir.initIR(memory.read(ip)); //Decode
 			ip.incrementa();
 			
 			if(debug){
@@ -51,15 +55,39 @@ public class Main {
 			//Execute
 			execute();
 			//println("");
-			if(debug) sleep(100);
+			if(debug) {
+				//println("");
+				sleep(100);
+			}
 		}
 		if(debug)println("\n+----+----------+");
 	}
 	
 	private static void execute() {
+		//println("Executing "+ip.addr_hex.value);
 		Istruzione istruzione = new Istruzione(ir.versione, ir.codiceOperativo, ir.indirizzoIstruzione);
 
 		istruzione.esegui();
+	}
+	
+	private static void userInterface() {
+		
+		println("+---------------------------------------------------------------------------------------------------------+");
+		println("|                                                                                                         |");
+		println("|                                   _     _         _____       _                           _             |");
+		println("|      /\\                          | |   | |       |_   _|     | |                         | |            |");
+		println("|     /  \\   ___ ___  ___ _ __ ___ | |__ | |_   _    | |  _ __ | |_ ___ _ __ _ __  _ __ ___| |_ ___ _ __  |");
+		println("|    / /\\ \\ / __/ __|/ _ \\ '_ ` _ \\| '_ \\| | | | |   | | | '_ \\| __/ _ \\ '__| '_ \\| '__/ _ \\ __/ _ \\ '__| |");
+		println("|   / ____ \\\\__ \\__ \\  __/ | | | | | |_) | | |_| |  _| |_| | | | ||  __/ |  | |_) | | |  __/ ||  __/ |    |");
+		println("|  /_/    \\_\\___/___/\\___|_| |_| |_|_.__/|_|\\__, | |_____|_| |_|\\__\\___|_|  | .__/|_|  \\___|\\__\\___|_|    |");
+		println("|                                            __/ |                          | |                           |");
+		println("|                                           |___/                           |_|                           |");
+		println("|                                                                                                         |");
+		println("+---------------------------------------------------------------------------------------------------------+");
+		
+		file = input("Scegli il nome del file: ", "");
+		// TODO: Menù a tendina
+		println("");
 	}
 	
 	
