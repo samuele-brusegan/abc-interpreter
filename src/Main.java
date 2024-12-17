@@ -29,7 +29,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		userInterface();
-		file_name = "src/assembledCode/"+file+"."+FILE_EXTENSION;
+		//file_name = "src/assembledCode/"+file+"."+FILE_EXTENSION;
+		file_name = "src/assembledCode/"+file;
 		
 		//Click Reset
 		memory = new Memoria(file_name);
@@ -71,22 +72,10 @@ public class Main {
 	}
 	
 	private static void userInterface() {
+		Graphics g = new Graphics();
+		g.printHeading();
+		file = g.printFileDropdown("src/assembledCode");
 		
-		println("+---------------------------------------------------------------------------------------------------------+");
-		println("|                                                                                                         |");
-		println("|                                   _     _         _____       _                           _             |");
-		println("|      /\\                          | |   | |       |_   _|     | |                         | |            |");
-		println("|     /  \\   ___ ___  ___ _ __ ___ | |__ | |_   _    | |  _ __ | |_ ___ _ __ _ __  _ __ ___| |_ ___ _ __  |");
-		println("|    / /\\ \\ / __/ __|/ _ \\ '_ ` _ \\| '_ \\| | | | |   | | | '_ \\| __/ _ \\ '__| '_ \\| '__/ _ \\ __/ _ \\ '__| |");
-		println("|   / ____ \\\\__ \\__ \\  __/ | | | | | |_) | | |_| |  _| |_| | | | ||  __/ |  | |_) | | |  __/ ||  __/ |    |");
-		println("|  /_/    \\_\\___/___/\\___|_| |_| |_|_.__/|_|\\__, | |_____|_| |_|\\__\\___|_|  | .__/|_|  \\___|\\__\\___|_|    |");
-		println("|                                            __/ |                          | |                           |");
-		println("|                                           |___/                           |_|                           |");
-		println("|                                                                                                         |");
-		println("+---------------------------------------------------------------------------------------------------------+");
-		
-		file = input("Scegli il nome del file: ", "");
-		// TODO: Menù a tendina
 		println("");
 	}
 	
