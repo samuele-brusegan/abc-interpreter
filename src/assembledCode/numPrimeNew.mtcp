@@ -27,4 +27,4 @@
 1A  |  0C00001D  | jump end //ref
 1B  |  00000003  | load zero        :notPrime
 1C  |  03000100  | out 100
-1D  |  50000000  | end              :end
+1D  |  0C00001D  | end              :end

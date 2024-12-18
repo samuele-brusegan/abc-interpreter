@@ -23,6 +23,7 @@ public class Hex {
 	Hex(){}
 	
 	public static boolean appartainToRadix(String str, int radix){
+		if(str.isEmpty()) return true;
 		str = str.toUpperCase();
 		char[] charsAllowed = new char[radix];
 		

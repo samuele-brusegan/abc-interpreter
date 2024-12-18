@@ -20,6 +20,10 @@ public class Memoria {
 		this.length = getMemoryLength(file_name);
 		this.initMemory(file_name);
 	}
+	Memoria(){
+		this.length = 1;
+		this.memory = new String[this.length];
+	}
 	
 	void initMemory(String file_name){
 		this.populateMemory(file_name);
@@ -54,18 +58,19 @@ public class Memoria {
 		return -1;
 	}
 	
-
 	void write(Addr24 address, Hex valueObj) {
 		String value = valueObj.value;
 		int addr = address.addr_int;
-		if(addr <= this.length){
+		if(addr < this.length){
 			this.memory[addr] = remSpace(value);
 		} else {
 			this.memory = Arrays.copyOf(memory, addr+1);
 			this.memory[addr] = remSpace(value);
 		}
 	}
-	
+	void push(Hex valueObj) {
+		this.write(new Addr24(new Hex().toHex(length)), valueObj);
+	}
 	Hex read(Addr24 address) {
 		return new Hex(memory[address.addr_int]);
 	}

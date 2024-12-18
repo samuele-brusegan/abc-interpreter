@@ -1,0 +1,20 @@
+00  |  0C00000C  | jump start
+01  |  00000001  |                   :valori
+02  |  00000002  |
+03  |  00000003  |
+04  |  00000004  |
+05  |  00000005  |
+06  |  00000006  |
+07  |  00000007  |
+08  |  00000008  |
+09  |  00000009  |
+0A  |  0000000A  |
+0B  |  00000000  |                   :finValori
+0C  |  12000001  | initix 0x1        :start
+0D  |  1A00000B  | skipixlt finValori:loop
+0E  |  0C000013  | jump end
+0F  |  02000200  | in 200
+10  |  11000001  | store[IX + valori]
+11  |  14000001  | addix 0x1
+12  |  0C00000D  | jump loop
+13  |  0C000013  | jump end          :end

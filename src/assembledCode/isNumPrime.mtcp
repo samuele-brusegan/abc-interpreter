@@ -23,4 +23,4 @@
 16  |  02000100  | in 100           :input
 17  |  01000001  | store num
 18  |  0C000006  | jump loop
-19  |  FF000000  | end              :end
+19  |  0C000019  | end              :end

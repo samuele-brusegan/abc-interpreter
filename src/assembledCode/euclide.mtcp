@@ -20,4 +20,4 @@
 12  |  0F00000A  | jgz loop
 13  |  00000004  | load a
 14  |  03000100  | out 100
-15  |  FF000000  | jump end -> Tecnicamente sarebbe "0C000015"
+15  |  0C000015  | jump end -> Tecnicamente sarebbe "0C000015"

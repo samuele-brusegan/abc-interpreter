@@ -1,0 +1,23 @@
+00  |  20FFFFFF  | initsp 0xFFFFFF
+01  |  0C00000E  | jump start
+02  |  00000048  |   'H'             :msg
+03  |  00000065  |   'e'
+04  |  0000006C  |   'l'
+05  |  0000006C  |   'l'
+06  |  0000006F  |   'o'
+07  |  00000020  |   ' '
+08  |  00000057  |   'W'
+09  |  0000006F  |   'r'
+0A  |  00000072  |   'o'
+0B  |  0000006C  |   'l'
+0C  |  00000064  |   'd'
+0D  |  00000000  |
+0E  |  23000010  | call puts         :start
+0F  |  0C00000F  | jump end          :end
+10  |  12000002  | initix msg        :puts
+11  |  10000000  | load[ix+0]        :puts_loop
+12  |  0D000016  | jz putsExLoop
+13  |  03000100  | out 100
+14  |  14000001  | addix 0x1
+15  |  0C000011  | jump puts_loop
+16  |  24000000  | ret putsExLoop

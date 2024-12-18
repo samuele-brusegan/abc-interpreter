@@ -1,3 +1,5 @@
+import static utilities.Print.print;
+
 public class Address {
     Hex addr_hex;
     int addr_int;

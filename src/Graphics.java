@@ -28,10 +28,15 @@ public class Graphics {
 			File file = new File(path);
 			String[] arr = file.list();
 			for (int i = 0; i < arr.length; i++) {
-				println(i+1+". "+arr[i]);
+				System.out.printf("%-106s","| "+(i+1)+". "+arr[i]);
+				println("|");
 			}
-			int selected = input("\n\tSeleziona il file(1-"+arr.length+"): ", 0);
-			println("\n  You have selected "+colorizer(arr[selected-1], "blue-li")+" file.\n");
+			println("|                                                                                                         |");
+			int selected = input("|\tSeleziona il file(1-"+arr.length+"): ", 0);
+			println("|                                                                                                         |");
+			System.out.printf("%-117s","|  You have selected "+colorizer(arr[selected-1], "blue-li")+" file."); println("|");
+			println("|                                                                                                         |");
+			println("+---------------------------------------------------------------------------------------------------------+");
 			sleep(100);
 			return arr[selected-1];
 			

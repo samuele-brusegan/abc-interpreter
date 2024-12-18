@@ -10,18 +10,19 @@ public class Main {
 	static Addr24 ip           = new Addr24();
 	static Addr24 ix           = new Addr24();
 	static Addr24 iy           = new Addr24();
+	static Addr24 sp           = new Addr24();
+	static Addr24 badenPowell  = new Addr24(); //BP, ovviamente
+	
 	static Memoria memory;
+	static Memoria stack = new Memoria();
 	
-	//static int accInt = 0;
-	
-	static String FILE_EXTENSION = "mtcp";
-	static String file           = "numPrimeNew";
+	static String file;
 	static String file_name;
-	//static String file_name      = "euclide";
 	
 	//Settings
 	static boolean foundEnd      = false;
 	
+	static boolean encodeOutUTF32= true;
 	static boolean debug         = true;
 	static boolean showTrace     = false;
 	static boolean verbose       = false;
@@ -58,7 +59,7 @@ public class Main {
 			//println("");
 			if(debug) {
 				//println("");
-				sleep(100);
+				sleep(50);
 			}
 		}
 		if(debug)println("\n+----+----------+");
