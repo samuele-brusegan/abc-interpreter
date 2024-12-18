@@ -66,10 +66,10 @@ public class Bin {
 		return new Bin(reverse(sum));
 	}
 	
-	@Override
+	/*@Override
 	public String toString(){
 		return value;
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		Bin b1 = new Bin("1");

@@ -92,17 +92,105 @@ public class Istruzione {
 		}
 	}
 	void esegui_V1(){
-	
+		switch (codiceOperativo){
+			case '0' -> {}
+			case '1' -> {}
+			case '2' -> {}
+			case '3' -> {}
+			case '4' -> {}
+			case '5' -> {}
+			case '6' -> {}
+			case '7' -> {}
+			case '8' -> {}
+			case '9' -> {}
+			case 'A' -> {}
+			case 'B' -> {}
+			case 'C' -> {}
+			case 'D' -> {}
+			case 'E' -> {}
+			case 'F' -> {}
+		}
 	}
 	void esegui_V2(){
-	
+		switch (codiceOperativo){
+			case '0' -> {}
+			case '1' -> {}
+			case '2' -> {}
+			case '3' -> {}
+			case '4' -> {}
+			case '5' -> {}
+			case '6' -> {}
+			case '7' -> {}
+			case '8' -> {}
+			case '9' -> {}
+			case 'A' -> {}
+			case 'B' -> {}
+			case 'C' -> {}
+			case 'D' -> {}
+			case 'E' -> {}
+			case 'F' -> {}
+		}
 	}
 	void esegui_V3(){
-	
+		switch (codiceOperativo){
+			case '0' -> {}
+			case '1' -> {}
+			case '2' -> {}
+			case '3' -> {}
+			case '4' -> {}
+			case '5' -> {}
+			case '6' -> {}
+			case '7' -> {}
+			case '8' -> {}
+			case '9' -> {}
+			case 'A' -> {}
+			case 'B' -> {}
+			case 'C' -> {}
+			case 'D' -> {}
+			case 'E' -> {}
+			case 'F' -> {}
+		}
 	}
 	void esegui_V4(){
-	
+		switch (codiceOperativo){
+			case '0' -> {}
+			case '1' -> {}
+			case '2' -> {}
+			case '3' -> {}
+			case '4' -> {}
+			case '5' -> {}
+			case '6' -> {}
+			case '7' -> {}
+			case '8' -> {}
+			case '9' -> {}
+			case 'A' -> {}
+			case 'B' -> {}
+			case 'C' -> {}
+			case 'D' -> {}
+			case 'E' -> {}
+			case 'F' -> {}
+		}
 	}
+	/*
+	* switch (codiceOperativo){
+	*		case '0' -> {}
+	*		case '1' -> {}
+	*		case '2' -> {}
+	*		case '3' -> {}
+	*		case '4' -> {}
+	*		case '5' -> {}
+	*		case '6' -> {}
+	*		case '7' -> {}
+	*		case '8' -> {}
+	*		case '9' -> {}
+	*		case 'A' -> {}
+	*		case 'B' -> {}
+	*		case 'C' -> {}
+	*		case 'D' -> {}
+	*		case 'E' -> {}
+	*		case 'F' -> {}
+	*	}
+	*/
 	
 	/*public static void main(String[] args) {
 		
