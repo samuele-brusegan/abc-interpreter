@@ -22,7 +22,7 @@ public class Main {
 	//Settings
 	static boolean foundEnd      = false;
 	
-	static boolean encodeOutUTF32= true;
+	static boolean encodeOutUTF32= false;
 	static boolean debug         = true;
 	static boolean showTrace     = false;
 	static boolean verbose       = false;

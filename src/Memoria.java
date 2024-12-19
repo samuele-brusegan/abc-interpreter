@@ -69,7 +69,7 @@ public class Memoria {
 		}
 	}
 	void push(Hex valueObj) {
-		this.write(new Addr24(new Hex().toHex(length)), valueObj);
+		this.write(Main.sp, valueObj);
 	}
 	Hex read(Addr24 address) {
 		return new Hex(memory[address.addr_int]);

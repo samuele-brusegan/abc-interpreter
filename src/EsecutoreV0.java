@@ -66,7 +66,7 @@ public class EsecutoreV0 extends Esecutore {
 				Main.ip.setAddr(indirizzo);
 			}
 			else {
-				if(Main.debug) printColor("\t Ho raggiunto l'addr " + indirizzo.addr_hex.value+" [end]\n", "blue-li");
+				if(Main.debug) printColor("\t Ho raggiunto l'addr " + indirizzo.addr_hex.value+" [end]", "blue-li");
 				Main.foundEnd = true;
 			}
 		}

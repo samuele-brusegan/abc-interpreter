@@ -1,5 +1,4 @@
-import static utilities.Print.colorizer;
-import static utilities.Print.println;
+import static utilities.Print.*;
 
 public class EsecutoreV2 extends Esecutore {
 	
@@ -33,6 +32,8 @@ public class EsecutoreV2 extends Esecutore {
 				this.call(indirizzo);
 			}
 			case '4' -> {
+				if(Main.debug) println("\t "+colorizer("RET", "blue-li")+"   : (addr: "+indirizzo.addr_hex.value+", acc: "+
+						Main.accumulatore.addr_hex.value+", memRead: "+Main.memory.read(indirizzo).value+", sp: "+Main.sp.addr_hex.value+")");
 				this.ret();
 			}
 			case '5' -> {

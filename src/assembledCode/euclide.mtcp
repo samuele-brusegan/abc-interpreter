@@ -7,17 +7,17 @@
 06  |  00000000  | resto div int     :r
 07  |  02000100  | in a              :start
 08  |  01000004  | store a
-08  |  02000100  | in b
-09  |  01000005  | store b
-0A  |  00000004  | load a            :loop(load b; jgz)
-0B  |  08000005  | mod b
-0C  |  01000006  | store r
-0D  |  00000005  | load b
-0E  |  01000004  | store a
-0F  |  00000006  | load r
-10  |  01000005  | store b
-11  |  00000005  | load b
-12  |  0F00000A  | jgz loop
-13  |  00000004  | load a
-14  |  03000100  | out 100
-15  |  0C000015  | jump end -> Tecnicamente sarebbe "0C000015"
+09  |  02000100  | in b
+0A  |  01000005  | store b
+0B  |  00000004  | load a            :loop(load b; jgz)
+0C  |  08000005  | mod b
+0D  |  01000006  | store r
+0E  |  00000005  | load b
+0F  |  01000004  | store a
+00  |  00000006  | load r
+11  |  01000005  | store b
+12  |  00000005  | load b
+13  |  0F00000A  | jgz loop
+14  |  00000004  | load a
+15  |  03000100  | out 100
+16  |  0C000016  | jump end -> Tecnicamente sarebbe "0C000016"
